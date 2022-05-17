@@ -44,9 +44,9 @@ namespace OPHELIA_S_OASIS
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gelenButton = new System.Windows.Forms.RadioButton();
             this.dolulukButton = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
+            this.gelenButton = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -147,6 +147,11 @@ namespace OPHELIA_S_OASIS
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(17, 52);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            45,
+            0,
+            0,
+            0});
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -184,17 +189,6 @@ namespace OPHELIA_S_OASIS
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rapor Göster";
             // 
-            // gelenButton
-            // 
-            this.gelenButton.AutoSize = true;
-            this.gelenButton.Location = new System.Drawing.Point(7, 36);
-            this.gelenButton.Name = "gelenButton";
-            this.gelenButton.Size = new System.Drawing.Size(122, 24);
-            this.gelenButton.TabIndex = 0;
-            this.gelenButton.TabStop = true;
-            this.gelenButton.Text = "Gelen Raporu";
-            this.gelenButton.UseVisualStyleBackColor = true;
-            // 
             // dolulukButton
             // 
             this.dolulukButton.AutoSize = true;
@@ -216,6 +210,17 @@ namespace OPHELIA_S_OASIS
             this.button3.Text = "Göster";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // gelenButton
+            // 
+            this.gelenButton.AutoSize = true;
+            this.gelenButton.Location = new System.Drawing.Point(7, 36);
+            this.gelenButton.Name = "gelenButton";
+            this.gelenButton.Size = new System.Drawing.Size(122, 24);
+            this.gelenButton.TabIndex = 0;
+            this.gelenButton.TabStop = true;
+            this.gelenButton.Text = "Gelen Raporu";
+            this.gelenButton.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 

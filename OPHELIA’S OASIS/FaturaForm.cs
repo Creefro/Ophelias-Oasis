@@ -38,7 +38,10 @@ namespace OPHELIA_S_OASIS
                     string[] doldur = new string[] { reader.GetString(1), reader.GetDateTime(2).ToShortDateString(), reader.GetDateTime(3).ToShortDateString(), a, uc.ToString(), now };
 
                     listView1.Items.Add(reader.GetInt32(0).ToString()).SubItems.AddRange(doldur);
-
+                }
+                else
+                {
+                    label1.Text = "Seçilen odada bugün için bir rezervasyon yok.";
                 }
             }
             connection.Close();
