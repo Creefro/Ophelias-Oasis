@@ -99,6 +99,7 @@ namespace OPHELIA_S_OASIS
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 5, 17, 22, 54, 0, 0);
             // 
             // dateTimePicker2
             // 
