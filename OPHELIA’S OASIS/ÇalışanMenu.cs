@@ -36,7 +36,7 @@ namespace OPHELIA_S_OASIS
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
             SqlDataReader reader2 = dolulukcom.ExecuteReader();
-            // ListViewItem item = new ListViewItem();
+
             while (reader.Read())
             {
 
