@@ -109,8 +109,9 @@ namespace OPHELIA_S_OASIS
             connection.Close();
         }
 
-        private void AdminPanel_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+
         }
     }
 }

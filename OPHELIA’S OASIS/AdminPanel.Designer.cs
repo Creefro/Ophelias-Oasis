@@ -41,6 +41,7 @@ namespace OPHELIA_S_OASIS
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,11 +72,11 @@ namespace OPHELIA_S_OASIS
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(639, 348);
+            this.button1.Location = new System.Drawing.Point(848, 268);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(91, 43);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
+            this.button1.Text = "Rapor Getir";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -144,18 +145,28 @@ namespace OPHELIA_S_OASIS
             // 
             this.columnHeader2.Text = "Beklenen Gelir";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 365);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Geri";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 450);
+            this.ClientSize = new System.Drawing.Size(1043, 400);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Name = "AdminPanel";
             this.Text = "AdminPanel";
-            this.Load += new System.EventHandler(this.AdminPanel_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -176,5 +187,6 @@ namespace OPHELIA_S_OASIS
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Button button2;
     }
 }
