@@ -49,6 +49,8 @@ namespace OPHELIA_S_OASIS
             while (reader2.Read())
             {
                 string tarih;
+                string ad;
+                string now = DateTime.Now.ToShortDateString();
                 if (reader2.GetDateTime(2).ToString() == "1.01.1900 00:00:00")
                 {
                     tarih = "YOK";
@@ -57,7 +59,13 @@ namespace OPHELIA_S_OASIS
                 {
                     tarih = reader2.GetDateTime(2).ToShortDateString();
                 }
-                string[] doludoldur = new string[] { reader2.GetString(0), reader2.GetInt32(1).ToString(), tarih};
+                if (tarih == now)
+                {
+                    ad = "* " + reader2.GetString(0);
+                }
+                else
+                    ad = reader2.GetString(0);
+                string[] doludoldur = new string[] { ad, reader2.GetInt32(1).ToString(), tarih};
 
                 listViewDoluluk.Items.Add(sayac2.ToString()).SubItems.AddRange(doludoldur);
                 sayac2++;
