@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FaturaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaturaForm.Designer.cs">
+      <DependentUpon>FaturaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="ÇalışanMenu.Designer.cs">
       <DependentUpon>ÇalışanMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FaturaForm.resx">
+      <DependentUpon>FaturaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
