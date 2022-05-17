@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel.Designer.cs">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FaturaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,12 +70,6 @@
     <Compile Include="Müşteri.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YöneticiMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="YöneticiMenu.Designer.cs">
-      <DependentUpon>YöneticiMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Çalışan.cs" />
     <Compile Include="ÇalışanMenu.cs">
       <SubType>Form</SubType>
@@ -76,6 +77,9 @@
     <Compile Include="ÇalışanMenu.Designer.cs">
       <DependentUpon>ÇalışanMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminPanel.resx">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FaturaForm.resx">
       <DependentUpon>FaturaForm.cs</DependentUpon>
     </EmbeddedResource>
