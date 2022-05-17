@@ -57,8 +57,13 @@ namespace OPHELIA_S_OASIS
         {
             int odaidsi = odaIdCek();
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
-            
-            SqlCommand command = new SqlCommand("INSERT INTO Rezervasyon (MüşteriId,OdaId,RezervasyonTarih,CheckIn,CheckOut,Açıklama) VALUES('" + idCek() + "','" + odaidsi + "',GETDATE()," + dateTimePicker1.Value.Date.ToString("yyyy-mm-dd") + "," + dateTimePicker2.Value.Date.ToString("yyyy-mm-dd") + ", 'AAA' )");
+            int day1 = dateTimePicker1.Value.Day;
+            int month1 = dateTimePicker1.Value.Month;
+            int year1 = dateTimePicker1.Value.Year; 
+            int day2 = dateTimePicker2.Value.Day;
+            int month2 = dateTimePicker2.Value.Month;
+            int year2 = dateTimePicker2.Value.Year;
+            SqlCommand command = new SqlCommand("INSERT INTO Rezervasyon (MüşteriId,OdaId,RezervasyonTarih,CheckIn,CheckOut) VALUES(" + idCek() + "," + odaidsi + ",GETDATE(),CONVERT (datetime," + day1+"-"+month1 +"-"+year1+ "),CONVERT (datetime," + day2 + "-" + month2 + "-" + year2 + "))");
             command.Connection = connection;
             connection.Open();
 
@@ -72,7 +77,7 @@ namespace OPHELIA_S_OASIS
             int gun = (dateTimePicker2.Value - dateTimePicker1.Value).Days;
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
 
-            SqlCommand command = new SqlCommand("INSERT INTO Ödeme (MüşteriId,ÖdemeTarihi,Toplam) VALUES('" + idCek() + "','" + DateTime.Now + "'," + (gun*ucretCek()) + " )");
+            SqlCommand command = new SqlCommand("INSERT INTO Ödeme (MüşteriId,ÖdemeTarihi,Toplam) VALUES(" + idCek() + ",GETDATE()," + (gun*ucretCek()) + " )");
             command.Connection = connection;
             connection.Open();
 
@@ -110,17 +115,17 @@ namespace OPHELIA_S_OASIS
             connection.Close();
             return ID;
         }
-        int ucretCek()
+        double ucretCek()
         {
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
             SqlCommand command = new SqlCommand("SELECT Ücret FROM Oda WHERE OdaId = "+rezSave() +"");
             command.Connection = connection;
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
-            int ucret = 0;
+            double ucret =0;
             while (reader.Read())
             {
-                ucret = reader.GetInt32(0);
+                ucret = reader.GetDouble(0);
             }
             connection.Close();
             return ucret;
