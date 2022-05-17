@@ -25,7 +25,7 @@ namespace OPHELIA_S_OASIS
             string now = DateTime.Now.ToShortDateString();
             listView1.View = View.Details;
             SqlConnection connection = new SqlConnection("Data Source=FAEGNIR\\SQLEXPRESS;Initial Catalog=\"OPHELIA’S OASIS\";Integrated Security=True");
-            SqlCommand command = new SqlCommand("SELECT O.OdaId,MüşteriAdSoyad,CheckIn,CheckOut,O.Ücret FROM Rezervasyon R INNER JOIN Musteri M ON R.MüşteriId = M.MüşteriId INNER JOIN Oda O ON O.OdaId = R.OdaId WHERE R.CheckOut = CAST(GETDATE() AS DATE)");
+            SqlCommand command = new SqlCommand("SELECT O.OdaId,MüşteriAdSoyad,CheckIn,CheckOut,Ö.Toplam FROM Rezervasyon R INNER JOIN Musteri M ON R.MüşteriId = M.MüşteriId INNER JOIN Oda O ON O.OdaId = R.OdaId INNER JOIN Ödeme Ö on Ö.MüşteriId = M.MüşteriId WHERE R.CheckOut = CAST(GETDATE() AS DATE)");
             command.Connection = connection;
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
@@ -41,7 +41,7 @@ namespace OPHELIA_S_OASIS
                 }
                 else
                 {
-                    label1.Text = "Seçilen odada bugün için bir rezervasyon yok.";
+                    label1.Text = "Seçilen oda için bugün bir rezervasyon yok.";
                 }
             }
             connection.Close();

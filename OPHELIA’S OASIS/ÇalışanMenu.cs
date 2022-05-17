@@ -48,7 +48,7 @@ namespace OPHELIA_S_OASIS
                 doluluksergile();
             }
             else
-                MessageBox.Show("Lütfen seçin.", "Hata");
+                MessageBox.Show("Lütfen rapor seçin.", "Hata");
         }
         void gelensergile()
         {
