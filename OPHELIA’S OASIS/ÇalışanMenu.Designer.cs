@@ -36,11 +36,12 @@ namespace OPHELIA_S_OASIS
             this.odaNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.checkOut = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listViewDoluluk = new System.Windows.Forms.ListView();
-            this.musteriAdSyd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.doluOdaNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.checkoutTarihi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listViewGelen
@@ -54,7 +55,7 @@ namespace OPHELIA_S_OASIS
             this.listViewGelen.HideSelection = false;
             this.listViewGelen.Location = new System.Drawing.Point(12, 47);
             this.listViewGelen.Name = "listViewGelen";
-            this.listViewGelen.Size = new System.Drawing.Size(565, 257);
+            this.listViewGelen.Size = new System.Drawing.Size(573, 257);
             this.listViewGelen.TabIndex = 0;
             this.listViewGelen.UseCompatibleStateImageBehavior = false;
             // 
@@ -86,32 +87,16 @@ namespace OPHELIA_S_OASIS
             // listViewDoluluk
             // 
             this.listViewDoluluk.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.musteriAdSyd,
-            this.doluOdaNo,
-            this.checkoutTarihi});
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader1,
+            this.columnHeader4});
             this.listViewDoluluk.HideSelection = false;
-            this.listViewDoluluk.Location = new System.Drawing.Point(610, 47);
+            this.listViewDoluluk.Location = new System.Drawing.Point(631, 47);
             this.listViewDoluluk.Name = "listViewDoluluk";
-            this.listViewDoluluk.Size = new System.Drawing.Size(408, 257);
+            this.listViewDoluluk.Size = new System.Drawing.Size(382, 257);
             this.listViewDoluluk.TabIndex = 1;
             this.listViewDoluluk.UseCompatibleStateImageBehavior = false;
-            // 
-            // musteriAdSyd
-            // 
-            this.musteriAdSyd.DisplayIndex = 1;
-            this.musteriAdSyd.Text = "Müşteri İsim";
-            this.musteriAdSyd.Width = 100;
-            // 
-            // doluOdaNo
-            // 
-            this.doluOdaNo.DisplayIndex = 0;
-            this.doluOdaNo.Text = "Oda Numarası";
-            this.doluOdaNo.Width = 100;
-            // 
-            // checkoutTarihi
-            // 
-            this.checkoutTarihi.Text = "Check-out Tarihi";
-            this.checkoutTarihi.Width = 100;
             // 
             // label1
             // 
@@ -125,11 +110,30 @@ namespace OPHELIA_S_OASIS
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(607, 18);
+            this.label2.Location = new System.Drawing.Point(628, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Günlük doluluk oranı:";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "ID";
+            this.columnHeader2.Width = 25;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Müşteri Ad";
+            this.columnHeader3.Width = 80;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Oda No";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Check-Out Tarihi";
+            this.columnHeader4.Width = 100;
             // 
             // ÇalışanMenu
             // 
@@ -158,9 +162,10 @@ namespace OPHELIA_S_OASIS
         private System.Windows.Forms.ListView listViewDoluluk;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ColumnHeader musteriAdSyd;
-        private System.Windows.Forms.ColumnHeader doluOdaNo;
-        private System.Windows.Forms.ColumnHeader checkoutTarihi;
         private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
