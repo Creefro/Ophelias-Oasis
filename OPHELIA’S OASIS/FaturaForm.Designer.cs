@@ -54,7 +54,7 @@ namespace OPHELIA_S_OASIS
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(12, 29);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(776, 132);
+            this.listView1.Size = new System.Drawing.Size(707, 132);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -64,32 +64,33 @@ namespace OPHELIA_S_OASIS
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Müşteri Ad";
-            this.columnHeader2.Width = 80;
+            this.columnHeader2.Text = "Müşteri Ad Soyad";
+            this.columnHeader2.Width = 100;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Check-In";
-            this.columnHeader3.Width = 80;
+            this.columnHeader3.Width = 70;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Check-Out";
-            this.columnHeader4.Width = 80;
+            this.columnHeader4.Width = 70;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Kalınan gece";
-            this.columnHeader5.Width = 100;
+            this.columnHeader5.Width = 75;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Hesap";
+            this.columnHeader6.Text = "Ücret";
+            this.columnHeader6.Width = 40;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Fatura  Tarihi";
-            this.columnHeader7.Width = 100;
+            this.columnHeader7.Text = "Fatura Kesim Tarihi";
+            this.columnHeader7.Width = 110;
             // 
             // button1
             // 
@@ -115,7 +116,7 @@ namespace OPHELIA_S_OASIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 227);
+            this.ClientSize = new System.Drawing.Size(735, 227);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);

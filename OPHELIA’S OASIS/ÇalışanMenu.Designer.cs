@@ -63,7 +63,7 @@ namespace OPHELIA_S_OASIS
             this.listViewGelen.HideSelection = false;
             this.listViewGelen.Location = new System.Drawing.Point(12, 47);
             this.listViewGelen.Name = "listViewGelen";
-            this.listViewGelen.Size = new System.Drawing.Size(542, 257);
+            this.listViewGelen.Size = new System.Drawing.Size(515, 257);
             this.listViewGelen.TabIndex = 0;
             this.listViewGelen.UseCompatibleStateImageBehavior = false;
             // 
@@ -80,7 +80,7 @@ namespace OPHELIA_S_OASIS
             // odaNo
             // 
             this.odaNo.Text = "Oda Numarası";
-            this.odaNo.Width = 100;
+            this.odaNo.Width = 80;
             // 
             // checkOut
             // 
@@ -96,18 +96,19 @@ namespace OPHELIA_S_OASIS
             this.listViewDoluluk.HideSelection = false;
             this.listViewDoluluk.Location = new System.Drawing.Point(12, 47);
             this.listViewDoluluk.Name = "listViewDoluluk";
-            this.listViewDoluluk.Size = new System.Drawing.Size(372, 257);
+            this.listViewDoluluk.Size = new System.Drawing.Size(383, 257);
             this.listViewDoluluk.TabIndex = 1;
             this.listViewDoluluk.UseCompatibleStateImageBehavior = false;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Müşteri Ad";
-            this.columnHeader3.Width = 80;
+            this.columnHeader3.Text = "Müşteri Ad Soyad";
+            this.columnHeader3.Width = 100;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Oda No";
+            this.columnHeader1.Text = "Oda Numarası";
+            this.columnHeader1.Width = 80;
             // 
             // columnHeader4
             // 
