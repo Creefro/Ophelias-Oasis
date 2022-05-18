@@ -30,18 +30,19 @@ namespace OPHELIA_S_OASIS
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.beklenenDoluluk = new System.Windows.Forms.RadioButton();
-            this.beklenenOdaGelir = new System.Windows.Forms.RadioButton();
-            this.tesvikRaporu = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tesvikRaporu = new System.Windows.Forms.RadioButton();
+            this.beklenenOdaGelir = new System.Windows.Forms.RadioButton();
+            this.beklenenDoluluk = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,16 +71,16 @@ namespace OPHELIA_S_OASIS
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // beklenenDoluluk
+            // tesvikRaporu
             // 
-            this.beklenenDoluluk.AutoSize = true;
-            this.beklenenDoluluk.Location = new System.Drawing.Point(23, 18);
-            this.beklenenDoluluk.Name = "beklenenDoluluk";
-            this.beklenenDoluluk.Size = new System.Drawing.Size(190, 21);
-            this.beklenenDoluluk.TabIndex = 0;
-            this.beklenenDoluluk.TabStop = true;
-            this.beklenenDoluluk.Text = "Beklenen Doluluk Raporu";
-            this.beklenenDoluluk.UseVisualStyleBackColor = true;
+            this.tesvikRaporu.AutoSize = true;
+            this.tesvikRaporu.Location = new System.Drawing.Point(23, 72);
+            this.tesvikRaporu.Name = "tesvikRaporu";
+            this.tesvikRaporu.Size = new System.Drawing.Size(121, 21);
+            this.tesvikRaporu.TabIndex = 2;
+            this.tesvikRaporu.TabStop = true;
+            this.tesvikRaporu.Text = "Teşvik Raporu";
+            this.tesvikRaporu.UseVisualStyleBackColor = true;
             // 
             // beklenenOdaGelir
             // 
@@ -92,16 +93,16 @@ namespace OPHELIA_S_OASIS
             this.beklenenOdaGelir.Text = "Beklenen Oda Gelir Raporu";
             this.beklenenOdaGelir.UseVisualStyleBackColor = true;
             // 
-            // tesvikRaporu
+            // beklenenDoluluk
             // 
-            this.tesvikRaporu.AutoSize = true;
-            this.tesvikRaporu.Location = new System.Drawing.Point(23, 72);
-            this.tesvikRaporu.Name = "tesvikRaporu";
-            this.tesvikRaporu.Size = new System.Drawing.Size(121, 21);
-            this.tesvikRaporu.TabIndex = 2;
-            this.tesvikRaporu.TabStop = true;
-            this.tesvikRaporu.Text = "Teşvik Raporu";
-            this.tesvikRaporu.UseVisualStyleBackColor = true;
+            this.beklenenDoluluk.AutoSize = true;
+            this.beklenenDoluluk.Location = new System.Drawing.Point(23, 18);
+            this.beklenenDoluluk.Name = "beklenenDoluluk";
+            this.beklenenDoluluk.Size = new System.Drawing.Size(190, 21);
+            this.beklenenDoluluk.TabIndex = 0;
+            this.beklenenDoluluk.TabStop = true;
+            this.beklenenDoluluk.Text = "Beklenen Doluluk Raporu";
+            this.beklenenDoluluk.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -135,11 +136,22 @@ namespace OPHELIA_S_OASIS
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(676, 451);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(112, 49);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Fiyatları Değiştir";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 531);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -168,5 +180,6 @@ namespace OPHELIA_S_OASIS
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button button3;
     }
 }
