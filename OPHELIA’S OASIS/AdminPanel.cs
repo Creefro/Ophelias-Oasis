@@ -112,6 +112,14 @@ namespace OPHELIA_S_OASIS
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FiyatDeğiştirForm main = new FiyatDeğiştirForm();
+            main.Location = this.Location;
+            this.Hide();
+            main.Show();
+        }
     }
 }
 
