@@ -57,7 +57,8 @@ namespace OPHELIA_S_OASIS
             listViewGelen.Visible = true;
             listViewGelen.Items.Clear();
             listViewGelen.View = View.Details;
-            SqlConnection connection = new SqlConnection("Data Source=FAEGNIR\\SQLEXPRESS;Initial Catalog=\"OPHELIA’S OASIS\";Integrated Security=True");
+            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
+
             SqlCommand command = new SqlCommand("SELECT MüşteriAdSoyad, Rezervasyon ,O.OdaId , CheckOut FROM Rezervasyon R INNER JOIN Musteri M ON R.MüşteriId = M.MüşteriId INNER JOIN Oda O ON O.OdaId = R.OdaId WHERE R.CheckIn = CAST(GETDATE() AS DATE) ORDER BY M.MüşteriAdSoyad ASC");
             command.Connection = connection;
             connection.Open();
@@ -80,7 +81,7 @@ namespace OPHELIA_S_OASIS
 
             listViewDoluluk.View = View.Details;
 
-            SqlConnection connection1 = new SqlConnection("Data Source=FAEGNIR\\SQLEXPRESS;Initial Catalog=\"OPHELIA’S OASIS\";Integrated Security=True");
+            SqlConnection connection1 = Helper.GetConnection("Ophelias-Oasis");
 
             SqlCommand dolulukcom = new SqlCommand("SELECT MüşteriAdSoyad,OdaId,CheckOut FROM (Rezervasyon R INNER JOIN Musteri M ON M.MüşteriId = R.MüşteriId) WHERE (R.RezervasyonTarih = DATEADD(day, -1, CAST(GETDATE() AS date))) UNION SELECT MüşteriAdSoyad,OdaId,CONVERT(datetime,0000-00-00) FROM (Rezervasyon R INNER JOIN Musteri M ON M.MüşteriId = R.MüşteriId) WHERE not exists (SELECT * FROM Rezervasyon WHERE (R.RezervasyonTarih = DATEADD(day, -1, CAST(GETDATE() AS date)))) ORDER BY OdaId ASC");
             dolulukcom.Connection = connection1;

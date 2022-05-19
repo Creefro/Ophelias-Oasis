@@ -16,7 +16,7 @@ namespace OPHELIA_S_OASIS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FiyatDeğiştirForm());
+            Application.Run(new RezervasyonForm());
         }
     }
 }

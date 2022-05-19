@@ -18,6 +18,7 @@ namespace OPHELIA_S_OASIS
             InitializeComponent();
         }
 
+        OdaYönet odaYonet;
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length < 1)
@@ -26,15 +27,9 @@ namespace OPHELIA_S_OASIS
             }
             else
             {
-                SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
+                odaYonet = new OdaYönet();
 
-                SqlCommand command = new SqlCommand("UPDATE Oda SET Ücret =" + float.Parse(textBox1.Text) + "WHERE OdaId =" + Convert.ToInt32(numericUpDown1.Value) + "");
-                command.Connection = connection;
-                connection.Open();
-
-                command.ExecuteNonQuery();
-
-                connection.Close();
+                odaYonet.odaIdsiyleUcretDegistir(double.Parse(textBox1.Text), Convert.ToInt32(numericUpDown1.Value));
             }
         }
 
@@ -46,15 +41,9 @@ namespace OPHELIA_S_OASIS
             }
             else
             {
-                SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
+                odaYonet = new OdaYönet();
 
-                SqlCommand command = new SqlCommand("UPDATE Oda SET Ücret =" + float.Parse(textBox2.Text) + "");
-                command.Connection = connection;
-                connection.Open();
-
-                command.ExecuteNonQuery();
-
-                connection.Close();
+                odaYonet.tumOdalarUcretDegistir(double.Parse(textBox2.Text));
             }
         }
 
