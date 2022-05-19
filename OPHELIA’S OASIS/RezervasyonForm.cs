@@ -26,20 +26,46 @@ namespace OPHELIA_S_OASIS
         private void button1_Click(object sender, EventArgs e)
         {
             string durum;
-            if(comboBox1.SelectedItem.ToString() == "60 Gün")
+            
+            if(comboBox1.SelectedItem.ToString()=="Ön Ödemeli")
             {
-                durum = "Ödeme Yapılmadı";
+                dateTimePicker1.MinDate = DateTime.Now.AddDays(90);
+                durum = "Ödeme Yapıldı";
                 musteriSave(durum);
+                rezSave();
+                double ucret = ucretCek() * 0.75;
+
+                odemeSave(ucret);
             }
-            else
+            else if (comboBox1.SelectedItem.ToString() == "Teşvik")
             {
                 durum = "Ödeme Yapıldı";
                 musteriSave(durum);
-                odemeSave();
+                rezSave();
+                ucretCek();
+                //odemeSave();
             }
-           // musteriSave(durum);
-            rezSave();
+            else if (comboBox1.SelectedItem.ToString() == "Klasik")
+            {
+                durum = "Ödeme Yapıldı";
+                musteriSave(durum);
+                rezSave();
+                
+                odemeSave(ucretCek());
+            }
+            else if (comboBox1.SelectedItem.ToString() == "60 Gün")
+            {
+                durum = "Ödeme Yapılmadı";
+                musteriSave(durum); 
+                rezSave();
+                double ucret = ucretCek() * 0.85;
 
+                odemeSave(ucret);
+            }
+            else
+            {
+
+            }
         }
         void musteriSave(string durum)
         {
@@ -72,12 +98,12 @@ namespace OPHELIA_S_OASIS
             connection.Close();
             return odaidsi;
         }
-        void odemeSave()
+        void odemeSave(double rezUcret)
         {
             int gun = (dateTimePicker2.Value - dateTimePicker1.Value).Days;
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
 
-            SqlCommand command = new SqlCommand("INSERT INTO Ödeme (MüşteriId,ÖdemeTarihi,Toplam) VALUES(" + idCek() + ",GETDATE()," + (gun*ucretCek()) + " )");
+            SqlCommand command = new SqlCommand("INSERT INTO Ödeme (MüşteriId,ÖdemeTarihi,Toplam) VALUES(" + idCek() + ",GETDATE()," + (gun*rezUcret) + " )");
             command.Connection = connection;
             connection.Open();
 
