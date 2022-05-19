@@ -108,10 +108,6 @@ namespace OPHELIA_S_OASIS
             }
             connection.Close();
         }
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -119,6 +115,11 @@ namespace OPHELIA_S_OASIS
             main.Location = this.Location;
             this.Hide();
             main.Show();
+        }
+
+        private void GeriButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

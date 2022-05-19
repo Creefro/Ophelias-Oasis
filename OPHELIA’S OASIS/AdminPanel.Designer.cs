@@ -38,7 +38,7 @@ namespace OPHELIA_S_OASIS
             this.beklenenOdaGelir = new System.Windows.Forms.RadioButton();
             this.beklenenDoluluk = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.geriButton = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -114,15 +114,15 @@ namespace OPHELIA_S_OASIS
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // geriButton
             // 
-            this.button2.Location = new System.Drawing.Point(37, 373);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.geriButton.Location = new System.Drawing.Point(37, 373);
+            this.geriButton.Name = "geriButton";
+            this.geriButton.Size = new System.Drawing.Size(75, 23);
+            this.geriButton.TabIndex = 3;
+            this.geriButton.Text = "Geri";
+            this.geriButton.UseVisualStyleBackColor = true;
+            this.geriButton.Click += new System.EventHandler(this.GeriButton_Click);
             // 
             // listView2
             // 
@@ -153,7 +153,7 @@ namespace OPHELIA_S_OASIS
             this.ClientSize = new System.Drawing.Size(800, 531);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listView2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.geriButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView1);
@@ -173,7 +173,7 @@ namespace OPHELIA_S_OASIS
         private System.Windows.Forms.RadioButton beklenenOdaGelir;
         private System.Windows.Forms.RadioButton beklenenDoluluk;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button geriButton;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;

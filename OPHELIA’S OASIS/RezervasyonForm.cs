@@ -25,136 +25,78 @@ namespace OPHELIA_S_OASIS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Rezervasyon rezervasyon;
             string durum;
             
             if(comboBox1.SelectedItem.ToString()=="Ön Ödemeli")
             {
-                dateTimePicker1.MinDate = DateTime.Now.AddDays(90);
-                durum = "Ödeme Yapıldı";
-                musteriSave(durum);
-                rezSave();
-                double ucret = ucretCek() * 0.75;
+                
+                if (dateTimePicker1.Value < DateTime.Now.AddDays(90))
+                {
+                    MessageBox.Show("Ön ödemeli rezervasyonlar minimum 90 gün sonraya alınabilir.");
+                    dateTimePicker1.Value = DateTime.Now.AddDays(90);
+                }
+                else
+                {
+                    rezervasyon = new Rezervasyon();
+                    durum = "Ödeme Yapıldı";
+                    rezervasyon.musteriSave(adTxt.Text,comboBox1.SelectedItem.ToString(),durum,mailTxt.Text,kartTxt.Text);
+                    int musteriId = rezervasyon.idCek(adTxt.Text);
+                    int odaId = rezervasyon.rezSave(musteriId,dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year, dateTimePicker2.Value.Day, dateTimePicker2.Value.Month, dateTimePicker2.Value.Year);
+                    double ucret = rezervasyon.ucretCek(odaId) * 0.75;
+                    rezervasyon.odemeSave(musteriId, ucret, dateTimePicker2.Value, dateTimePicker1.Value);
+                    rezervasyon.odaDoldur(odaId);
+                }
 
-                odemeSave(ucret);
             }
             else if (comboBox1.SelectedItem.ToString() == "Teşvik")
             {
                 durum = "Ödeme Yapıldı";
-                musteriSave(durum);
-                rezSave();
-                ucretCek();
+                //musteriSave(durum);
+                //rezSave();
+                //ucretCek();
                 //odemeSave();
             }
             else if (comboBox1.SelectedItem.ToString() == "Klasik")
             {
+                rezervasyon = new Rezervasyon();
                 durum = "Ödeme Yapıldı";
-                musteriSave(durum);
-                rezSave();
-                
-                odemeSave(ucretCek());
+                rezervasyon.musteriSave(adTxt.Text, comboBox1.SelectedItem.ToString(), durum, mailTxt.Text, kartTxt.Text);
+                int musteriId = rezervasyon.idCek(adTxt.Text);
+                int odaId = rezervasyon.rezSave(musteriId, dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year, dateTimePicker2.Value.Day, dateTimePicker2.Value.Month, dateTimePicker2.Value.Year);
+                double ucret = rezervasyon.ucretCek(odaId);
+                rezervasyon.odemeSave(musteriId, ucret, dateTimePicker2.Value, dateTimePicker1.Value);
+                rezervasyon.odaDoldur(odaId);
             }
             else if (comboBox1.SelectedItem.ToString() == "60 Gün")
             {
+                dateTimePicker1.Value = DateTime.Now.AddDays(60);
+                rezervasyon = new Rezervasyon();
                 durum = "Ödeme Yapılmadı";
-                musteriSave(durum); 
-                rezSave();
-                double ucret = ucretCek() * 0.85;
-
-                odemeSave(ucret);
+                rezervasyon.musteriSave(adTxt.Text, comboBox1.SelectedItem.ToString(), durum, mailTxt.Text, kartTxt.Text);
+                int musteriId = rezervasyon.idCek(adTxt.Text);
+                int odaId = rezervasyon.rezSave(musteriId, dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year, dateTimePicker2.Value.Day, dateTimePicker2.Value.Month, dateTimePicker2.Value.Year);
+                double ucret = rezervasyon.ucretCek(odaId) * 0.85;
+                rezervasyon.odemeSave(musteriId, ucret, dateTimePicker2.Value, dateTimePicker1.Value);
+                rezervasyon.odaDoldur(odaId);
             }
             else
             {
-
+                MessageBox.Show("Lütfen bir rezervasyon tipi seçiniz.");
             }
         }
-        void musteriSave(string durum)
+        
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
-
-            SqlCommand command = new SqlCommand("INSERT INTO Musteri (MüşteriAdSoyad,Rezervasyon,Durum,Eposta,KrediKartıNo) VALUES('" + adTxt.Text + "','" + comboBox1.SelectedItem.ToString() + "','" + durum + "','" + mailTxt.Text + "','" + kartTxt.Text + "')");
-            command.Connection = connection;
-            connection.Open();
-
-            command.ExecuteNonQuery();
-
-            connection.Close();
-        }
-        int rezSave()
-        {
-            int odaidsi = odaIdCek();
-            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
-            int day1 = dateTimePicker1.Value.Day;
-            int month1 = dateTimePicker1.Value.Month;
-            int year1 = dateTimePicker1.Value.Year; 
-            int day2 = dateTimePicker2.Value.Day;
-            int month2 = dateTimePicker2.Value.Month;
-            int year2 = dateTimePicker2.Value.Year;
-            SqlCommand command = new SqlCommand("INSERT INTO Rezervasyon (MüşteriId,OdaId,RezervasyonTarih,CheckIn,CheckOut) VALUES(" + idCek() + "," + odaidsi + ",GETDATE(),CONVERT (datetime," + day1+"-"+month1 +"-"+year1+ "),CONVERT (datetime," + day2 + "-" + month2 + "-" + year2 + "))");
-            command.Connection = connection;
-            connection.Open();
-
-            command.ExecuteNonQuery();
-
-            connection.Close();
-            return odaidsi;
-        }
-        void odemeSave(double rezUcret)
-        {
-            int gun = (dateTimePicker2.Value - dateTimePicker1.Value).Days;
-            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
-
-            SqlCommand command = new SqlCommand("INSERT INTO Ödeme (MüşteriId,ÖdemeTarihi,Toplam) VALUES(" + idCek() + ",GETDATE()," + (gun*rezUcret) + " )");
-            command.Connection = connection;
-            connection.Open();
-
-            command.ExecuteNonQuery();
-
-            connection.Close();
-        }
-        int idCek()
-        {
-            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
-            SqlCommand command = new SqlCommand("SELECT MüşteriId FROM Musteri WHERE MüşteriAdSoyad = '"+ adTxt.Text+"'");
-            command.Connection = connection;
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            int ID = 0;
-            while (reader.Read())
+            if (comboBox1.SelectedIndex == 1)
             {
-                ID = reader.GetInt32(0);
+                kartTxt.Enabled = false;
             }
-            connection.Close();
-            return ID;
-        }
-        int odaIdCek()
-        {
-            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
-            SqlCommand command = new SqlCommand("SELECT TOP 1 * FROM Oda O WHERE O.DoluMu = 0 ORDER BY NEWID()");
-            command.Connection = connection;
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            int ID = 0;
-            while (reader.Read())
+            else
             {
-                ID = reader.GetInt32(0);
+                kartTxt.Enabled = true;
+
             }
-            connection.Close();
-            return ID;
-        }
-        double ucretCek()
-        {
-            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
-            SqlCommand command = new SqlCommand("SELECT Ücret FROM Oda WHERE OdaId = "+rezSave() +"");
-            command.Connection = connection;
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            double ucret =0;
-            while (reader.Read())
-            {
-                ucret = reader.GetDouble(0);
-            }
-            connection.Close();
-            return ucret;
         }
     }
 }
