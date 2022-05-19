@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,6 +24,7 @@ namespace OPHELIA_S_OASIS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //rezervasyon Yap
             Rezervasyon rezervasyon;
             string durum;
             
@@ -90,13 +90,44 @@ namespace OPHELIA_S_OASIS
         {
             if (comboBox1.SelectedIndex == 1)
             {
-                kartTxt.Enabled = false;
+                groupBox1.Enabled = false;
             }
             else
             {
-                kartTxt.Enabled = true;
-
+                groupBox1.Enabled = true;
             }
+        }
+
+        private void adTxt_TextChanged(object sender, EventArgs e)
+        {
+            label11.Text = adTxt.Text;
+        }
+
+        private void kartTxt_KeyUp(object sender, KeyEventArgs e)
+        {
+            label9.Text = kartTxt.Text;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label10.Text = comboBox2.Text + "/" + comboBox3.Text;
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label10.Text = comboBox2.Text + "/" + comboBox3.Text;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            label12.Text = textBox1.Text;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //rezervasyon İptali
+
+
         }
     }
 }
