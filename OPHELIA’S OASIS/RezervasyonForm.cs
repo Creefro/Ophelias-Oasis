@@ -34,7 +34,8 @@ namespace OPHELIA_S_OASIS
                 if (dateTimePicker1.Value < DateTime.Now.AddDays(90))
                 {
                     MessageBox.Show("Ön ödemeli rezervasyonlar minimum 90 gün sonraya alınabilir.");
-                    dateTimePicker1.Value = DateTime.Now.AddDays(90);
+                    dateTimePicker1.Value = DateTime.Now.AddDays(91);
+                    dateTimePicker2.Value = DateTime.Now.AddDays(92);
                 }
                 else
                 {
@@ -70,7 +71,8 @@ namespace OPHELIA_S_OASIS
             }
             else if (comboBox1.SelectedItem.ToString() == "60 Gün")
             {
-                dateTimePicker1.Value = DateTime.Now.AddDays(60);
+                dateTimePicker1.Value = DateTime.Now.AddDays(61);
+                dateTimePicker1.Value = DateTime.Now.AddDays(62);
                 rezervasyon = new Rezervasyon();
                 durum = "Ödeme Yapılmadı";
                 rezervasyon.musteriSave(adTxt.Text, comboBox1.SelectedItem.ToString(), durum, mailTxt.Text, kartTxt.Text);
@@ -125,9 +127,11 @@ namespace OPHELIA_S_OASIS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //rezervasyon İptali
+            //rezervasyon tarih değistirme
 
-
+            RezervasyonErtele scr = new RezervasyonErtele();
+            this.Hide();
+            scr.Show();
         }
     }
 }
