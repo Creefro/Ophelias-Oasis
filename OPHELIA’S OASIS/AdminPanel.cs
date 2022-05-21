@@ -119,7 +119,10 @@ namespace OPHELIA_S_OASIS
 
         private void GeriButton_Click(object sender, EventArgs e)
         {
-
+            RezervasyonForm main = new RezervasyonForm();
+            main.Location = this.Location;
+            this.Hide();
+            main.Show();
         }
     }
 }

@@ -64,9 +64,10 @@ namespace OPHELIA_S_OASIS
             this.groupBox1.Controls.Add(this.tesvikRaporu);
             this.groupBox1.Controls.Add(this.beklenenOdaGelir);
             this.groupBox1.Controls.Add(this.beklenenDoluluk);
-            this.groupBox1.Location = new System.Drawing.Point(535, 92);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Location = new System.Drawing.Point(530, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(230, 107);
+            this.groupBox1.Size = new System.Drawing.Size(230, 157);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -106,9 +107,9 @@ namespace OPHELIA_S_OASIS
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(676, 230);
+            this.button1.Location = new System.Drawing.Point(116, 115);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(108, 36);
             this.button1.TabIndex = 2;
             this.button1.Text = "Rapor Getir";
             this.button1.UseVisualStyleBackColor = true;
@@ -116,9 +117,9 @@ namespace OPHELIA_S_OASIS
             // 
             // geriButton
             // 
-            this.geriButton.Location = new System.Drawing.Point(37, 373);
+            this.geriButton.Location = new System.Drawing.Point(12, 334);
             this.geriButton.Name = "geriButton";
-            this.geriButton.Size = new System.Drawing.Size(75, 23);
+            this.geriButton.Size = new System.Drawing.Size(87, 38);
             this.geriButton.TabIndex = 3;
             this.geriButton.Text = "Geri";
             this.geriButton.UseVisualStyleBackColor = true;
@@ -130,7 +131,7 @@ namespace OPHELIA_S_OASIS
             this.columnHeader4,
             this.columnHeader5});
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(118, 266);
+            this.listView2.Location = new System.Drawing.Point(12, 12);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(495, 248);
             this.listView2.TabIndex = 4;
@@ -138,7 +139,7 @@ namespace OPHELIA_S_OASIS
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(676, 451);
+            this.button3.Location = new System.Drawing.Point(676, 323);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 49);
             this.button3.TabIndex = 5;
@@ -150,11 +151,10 @@ namespace OPHELIA_S_OASIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 531);
+            this.ClientSize = new System.Drawing.Size(800, 384);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.geriButton);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView1);
             this.Name = "AdminPanel";
