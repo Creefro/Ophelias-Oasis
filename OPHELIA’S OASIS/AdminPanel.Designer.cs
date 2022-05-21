@@ -67,15 +67,15 @@ namespace OPHELIA_S_OASIS
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(530, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(230, 157);
+            this.groupBox1.Size = new System.Drawing.Size(230, 169);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Raporlar";
             // 
             // tesvikRaporu
             // 
             this.tesvikRaporu.AutoSize = true;
-            this.tesvikRaporu.Location = new System.Drawing.Point(23, 72);
+            this.tesvikRaporu.Location = new System.Drawing.Point(6, 86);
             this.tesvikRaporu.Name = "tesvikRaporu";
             this.tesvikRaporu.Size = new System.Drawing.Size(121, 21);
             this.tesvikRaporu.TabIndex = 2;
@@ -86,7 +86,7 @@ namespace OPHELIA_S_OASIS
             // beklenenOdaGelir
             // 
             this.beklenenOdaGelir.AutoSize = true;
-            this.beklenenOdaGelir.Location = new System.Drawing.Point(23, 45);
+            this.beklenenOdaGelir.Location = new System.Drawing.Point(6, 59);
             this.beklenenOdaGelir.Name = "beklenenOdaGelir";
             this.beklenenOdaGelir.Size = new System.Drawing.Size(204, 21);
             this.beklenenOdaGelir.TabIndex = 1;
@@ -97,7 +97,7 @@ namespace OPHELIA_S_OASIS
             // beklenenDoluluk
             // 
             this.beklenenDoluluk.AutoSize = true;
-            this.beklenenDoluluk.Location = new System.Drawing.Point(23, 18);
+            this.beklenenDoluluk.Location = new System.Drawing.Point(6, 32);
             this.beklenenDoluluk.Name = "beklenenDoluluk";
             this.beklenenDoluluk.Size = new System.Drawing.Size(190, 21);
             this.beklenenDoluluk.TabIndex = 0;
@@ -107,7 +107,7 @@ namespace OPHELIA_S_OASIS
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(116, 115);
+            this.button1.Location = new System.Drawing.Point(116, 127);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 36);
             this.button1.TabIndex = 2;
