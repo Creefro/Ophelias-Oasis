@@ -17,6 +17,8 @@ namespace OPHELIA_S_OASIS
             if (beklenenDoluluk.Checked)
             {
                 GetBeklenenDolulukRaporu();
+                label1.Text = "";
+
                 //decimal valorAcumulado = 0;
                 //for (int i = 0; i < listView1.Items.Count; i++)
                 //{
@@ -27,16 +29,20 @@ namespace OPHELIA_S_OASIS
             else if (beklenenOdaGelir.Checked)
             {
                 GetBeklenenOdaGelirRaporu();
-                decimal valorAcumulado = 0;
-                for (int i = 0; i < listView1.Items.Count; i++)
+                label1.Text = "";
+
+                decimal toplam = 0;
+
+                for (int i = 0; i < listView2.Items.Count; i++)
                 {
-                    valorAcumulado += decimal.Parse(listView1.Items[i].SubItems[1].Text);
+                    toplam += decimal.Parse(listView2.Items[i].SubItems[1].Text);
                 }
-                label1.Text = "Toplam gelir = " + (valorAcumulado) + ".\nOrtalama gelir = "+(valorAcumulado/30)+".";
+                label1.Text = "Toplam gelir = " + (toplam) + ".\nOrtalama gelir = "+(toplam / 30)+".";
             }
             else if (tesvikRaporu.Checked)
             {
                 GetTeşvikRaporu();
+                label1.Text = "";
             }
             else
                 MessageBox.Show("Hata");
@@ -89,7 +95,7 @@ namespace OPHELIA_S_OASIS
             int sayac = 0;
             while (reader.Read())
             {
-                string[] doldur = new string[] { reader.GetFloat(1).ToString() };
+                string[] doldur = new string[] { reader.GetDouble(1).ToString() };
 
                 listView2.Items.Add(reader.GetDateTime(0).ToShortDateString()).SubItems.AddRange(doldur);
                 sayac++;
@@ -104,7 +110,7 @@ namespace OPHELIA_S_OASIS
 
             listView3.Items.Clear();
             listView3.View = View.Details;
-            SqlConnection connection = Helper.GetConnection("SinavSistemiDB");
+            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
 
             SqlCommand command = new SqlCommand("select * from dbo.tesvikRapor()");
 
@@ -116,7 +122,7 @@ namespace OPHELIA_S_OASIS
             int sayac = 0;
             while (reader.Read())
             {
-                string[] doldur = new string[] { reader.GetFloat(1).ToString() };
+                string[] doldur = new string[] { reader.GetDouble(1).ToString() };
 
                 listView3.Items.Add(reader.GetDateTime(0).ToShortDateString()).SubItems.AddRange(doldur);
                 sayac++;
@@ -134,15 +140,10 @@ namespace OPHELIA_S_OASIS
 
         private void GeriButton_Click(object sender, EventArgs e)
         {
-            RezervasyonForm main = new RezervasyonForm();
+            Login main = new Login();
             main.Location = this.Location;
             this.Hide();
             main.Show();
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

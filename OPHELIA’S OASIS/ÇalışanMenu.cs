@@ -26,7 +26,10 @@ namespace OPHELIA_S_OASIS
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Login login = new Login();
+            login.Location = this.Location;
+            this.Hide();
+            login.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -113,6 +116,13 @@ namespace OPHELIA_S_OASIS
                 listViewDoluluk.Items.Add(ad).SubItems.AddRange(doludoldur);
             }
             connection1.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            RezervasyonSil rzv = new RezervasyonSil();
+            rzv.Show();
+            this.Hide();
         }
     }
 }

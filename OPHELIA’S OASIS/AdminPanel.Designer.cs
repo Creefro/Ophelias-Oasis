@@ -62,17 +62,15 @@ namespace OPHELIA_S_OASIS
             this.listView1.Size = new System.Drawing.Size(495, 248);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tesvikRaporu);
             this.groupBox1.Controls.Add(this.beklenenOdaGelir);
             this.groupBox1.Controls.Add(this.beklenenDoluluk);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(530, 53);
+            this.groupBox1.Location = new System.Drawing.Point(524, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(230, 169);
+            this.groupBox1.Size = new System.Drawing.Size(230, 120);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Raporlar";
@@ -112,9 +110,9 @@ namespace OPHELIA_S_OASIS
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(116, 127);
+            this.button1.Location = new System.Drawing.Point(646, 199);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 36);
+            this.button1.Size = new System.Drawing.Size(108, 61);
             this.button1.TabIndex = 2;
             this.button1.Text = "Rapor Getir";
             this.button1.UseVisualStyleBackColor = true;
@@ -122,9 +120,9 @@ namespace OPHELIA_S_OASIS
             // 
             // geriButton
             // 
-            this.geriButton.Location = new System.Drawing.Point(12, 334);
+            this.geriButton.Location = new System.Drawing.Point(12, 323);
             this.geriButton.Name = "geriButton";
-            this.geriButton.Size = new System.Drawing.Size(87, 38);
+            this.geriButton.Size = new System.Drawing.Size(87, 49);
             this.geriButton.TabIndex = 3;
             this.geriButton.Text = "Geri";
             this.geriButton.UseVisualStyleBackColor = true;
@@ -152,9 +150,9 @@ namespace OPHELIA_S_OASIS
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(676, 323);
+            this.button3.Location = new System.Drawing.Point(646, 323);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 49);
+            this.button3.Size = new System.Drawing.Size(108, 49);
             this.button3.TabIndex = 5;
             this.button3.Text = "Fiyatları Değiştir";
             this.button3.UseVisualStyleBackColor = true;
@@ -163,7 +161,7 @@ namespace OPHELIA_S_OASIS
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(541, 214);
+            this.label1.Location = new System.Drawing.Point(12, 263);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 6;
@@ -175,7 +173,7 @@ namespace OPHELIA_S_OASIS
             this.columnHeader6,
             this.columnHeader7});
             this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(92, 438);
+            this.listView3.Location = new System.Drawing.Point(12, 12);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(495, 248);
             this.listView3.TabIndex = 7;
@@ -193,12 +191,11 @@ namespace OPHELIA_S_OASIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(800, 729);
+            this.ClientSize = new System.Drawing.Size(770, 392);
             this.Controls.Add(this.listView3);
             this.Controls.Add(this.label1);
-
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.geriButton);
             this.Controls.Add(this.groupBox1);
