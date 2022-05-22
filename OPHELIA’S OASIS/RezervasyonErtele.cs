@@ -24,11 +24,11 @@ namespace OPHELIA_S_OASIS
             rezervasyon.rezUpdate(musteriId, dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year, dateTimePicker2.Value.Day, dateTimePicker2.Value.Month, dateTimePicker2.Value.Year);
 
             // ceza ekle
-            if(rezervasyon.rezTipiÇek(musteriId)=="Ön Ödemeli" || rezervasyon.rezTipiÇek(musteriId) == "60 Gün Önceden")
+            if(rezervasyon.rezTipiÇek(musteriId)=="Ön Ödemeli" || rezervasyon.rezTipiÇek(musteriId) == "60 Gün")
             {
                 double eskiUcret = rezervasyon.ucretCek(rezervasyon.GetOdaIdFromRezervasyon(musteriId));
                 rezervasyon.cezaEkle(musteriId, eskiUcret);
-                MessageBox.Show("Rezervasyon tarihiniz başarıyla değiştirilmiştir.");
+                MessageBox.Show("Rezervasyon tarihiniz başarıyla değiştirilmiştir. Ceza fiyatı uygulanmıştır.");
             }
             else
             {

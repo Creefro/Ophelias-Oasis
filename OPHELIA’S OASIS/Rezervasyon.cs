@@ -140,7 +140,7 @@ namespace OPHELIA_S_OASIS
         {
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
 
-            SqlCommand command = new SqlCommand("UPDATE Rezervasyon SET CheckIn = CONVERT(datetime, " + day1 + " - " + month1 + " - " + year1 + "), CheckOut = CONVERT (datetime," + day2 + "-" + month2 + "-" + year2 + ") WHERE MusteriId = " + musteriId + "");
+            SqlCommand command = new SqlCommand("UPDATE Rezervasyon SET CheckIn = CONVERT(datetime, " + year1 + " - " + month1 + " - " + day1 + "), CheckOut = CONVERT (datetime," + year2 + "-" + month2 + "-" + day2 + ") WHERE MüşteriId = " + musteriId + "");
             command.Connection = connection;
             connection.Open();
 
@@ -152,7 +152,7 @@ namespace OPHELIA_S_OASIS
         {
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
 
-            SqlCommand command = new SqlCommand("Update Ödeme set Toplam = dbo.cezaÜcretEkle("+musteriId+") +"+ücret+" where MüşteriId = "+musteriId+"");
+            SqlCommand command = new SqlCommand("Update Ödeme set Toplam = (dbo.cezaÜcretEkle("+musteriId+") +"+(ücret*1.1)+") where MüşteriId = "+musteriId+"");
             command.Connection = connection;
             connection.Open();
 

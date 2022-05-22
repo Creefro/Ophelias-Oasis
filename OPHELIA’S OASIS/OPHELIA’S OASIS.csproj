@@ -53,6 +53,12 @@
     <Compile Include="AdminPanel.Designer.cs">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnaMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnaMenu.Designer.cs">
+      <DependentUpon>AnaMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FaturaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,12 @@
     </Compile>
     <Compile Include="FiyatDeğiştirForm.Designer.cs">
       <DependentUpon>FiyatDeğiştirForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="RezervasyonErtele.cs">
       <SubType>Form</SubType>
@@ -83,6 +95,13 @@
     <Compile Include="RezervasyonForm.Designer.cs">
       <DependentUpon>RezervasyonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RezervasyonSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RezervasyonSil.Designer.cs">
+      <DependentUpon>RezervasyonSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserProvider.cs" />
     <Compile Include="Çalışan.cs" />
     <Compile Include="ÇalışanMenu.cs">
       <SubType>Form</SubType>
@@ -93,11 +112,17 @@
     <EmbeddedResource Include="AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AnaMenu.resx">
+      <DependentUpon>AnaMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FaturaForm.resx">
       <DependentUpon>FaturaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FiyatDeğiştirForm.resx">
       <DependentUpon>FiyatDeğiştirForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RezervasyonForm.resx">
       <DependentUpon>RezervasyonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RezervasyonSil.resx">
+      <DependentUpon>RezervasyonSil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ÇalışanMenu.resx">
       <DependentUpon>ÇalışanMenu.cs</DependentUpon>
