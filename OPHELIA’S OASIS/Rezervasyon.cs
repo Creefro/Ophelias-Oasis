@@ -35,12 +35,12 @@ namespace OPHELIA_S_OASIS
             connection.Close();
             return odaidsi;
         }
-        public void odemeSave(int id,double rezUcret,DateTime checkOut,DateTime checkIn)
+        public void odemeSave(int id,double rezUcret,DateTime checkOut,DateTime checkIn,double indirim)
         {
             int gun = (checkOut - checkIn).Days;
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
 
-            SqlCommand command = new SqlCommand("INSERT INTO Ödeme (MüşteriId,ÖdemeTarihi,Toplam) VALUES(" + id + ",GETDATE()," + (gun * rezUcret) + " )");
+            SqlCommand command = new SqlCommand("INSERT INTO Ödeme (MüşteriId,ÖdemeTarihi,Toplam,İndirim) VALUES(" + id + ",GETDATE()," + (gun * rezUcret) + ","+ indirim+" )");
             command.Connection = connection;
             connection.Open();
 

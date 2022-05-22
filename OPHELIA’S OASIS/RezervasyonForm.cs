@@ -45,7 +45,7 @@ namespace OPHELIA_S_OASIS
                     int musteriId = rezervasyon.idCek(adTxt.Text);
                     int odaId = rezervasyon.rezSave(musteriId,dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year, dateTimePicker2.Value.Day, dateTimePicker2.Value.Month, dateTimePicker2.Value.Year);
                     double ucret = rezervasyon.ucretCek(odaId) * 0.75;
-                    rezervasyon.odemeSave(musteriId, ucret, dateTimePicker2.Value, dateTimePicker1.Value);
+                    rezervasyon.odemeSave(musteriId, ucret, dateTimePicker2.Value, dateTimePicker1.Value,0);
                     rezervasyon.odaDoldur(odaId);
                 }
 
@@ -66,7 +66,7 @@ namespace OPHELIA_S_OASIS
                 int musteriId = rezervasyon.idCek(adTxt.Text);
                 int odaId = rezervasyon.rezSave(musteriId, dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year, dateTimePicker2.Value.Day, dateTimePicker2.Value.Month, dateTimePicker2.Value.Year);
                 double ucret = rezervasyon.ucretCek(odaId);
-                rezervasyon.odemeSave(musteriId, ucret, dateTimePicker2.Value, dateTimePicker1.Value);
+                rezervasyon.odemeSave(musteriId, ucret, dateTimePicker2.Value, dateTimePicker1.Value,0);
                 rezervasyon.odaDoldur(odaId);
             }
             else if (comboBox1.SelectedItem.ToString() == "60 Gün")
@@ -79,7 +79,7 @@ namespace OPHELIA_S_OASIS
                 int musteriId = rezervasyon.idCek(adTxt.Text);
                 int odaId = rezervasyon.rezSave(musteriId, dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year, dateTimePicker2.Value.Day, dateTimePicker2.Value.Month, dateTimePicker2.Value.Year);
                 double ucret = rezervasyon.ucretCek(odaId) * 0.85;
-                rezervasyon.odemeSave(musteriId, ucret, dateTimePicker2.Value, dateTimePicker1.Value);
+                rezervasyon.odemeSave(musteriId, ucret, dateTimePicker2.Value, dateTimePicker1.Value,0);
                 rezervasyon.odaDoldur(odaId);
             }
             else
