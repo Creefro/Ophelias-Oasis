@@ -19,12 +19,8 @@ namespace OPHELIA_S_OASIS
                 GetBeklenenDolulukRaporu();
                 label1.Text = "";
 
-                //decimal valorAcumulado = 0;
-                //for (int i = 0; i < listView1.Items.Count; i++)
-                //{
-                //    valorAcumulado += decimal.Parse(listView1.Items[i].SubItems[0].Text);
-                //}
-                //label1.Text = "Beklenen doluluk oranı = "+(valorAcumulado / 30)+".";
+                Admin admin = new Admin();
+                label1.Text = "Aylık ortalama doluluk = " + (admin.beklenenDolulukOranı()) + "";
             }
             else if (beklenenOdaGelir.Checked)
             {

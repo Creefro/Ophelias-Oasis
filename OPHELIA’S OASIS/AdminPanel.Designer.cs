@@ -63,6 +63,21 @@ namespace OPHELIA_S_OASIS
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Rezervasyon Sayısı";
+            this.columnHeader1.Width = 140;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Rezervasyon Tipi";
+            this.columnHeader2.Width = 140;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Tarih";
+            this.columnHeader3.Width = 80;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tesvikRaporu);
@@ -143,10 +158,12 @@ namespace OPHELIA_S_OASIS
             // columnHeader4
             // 
             this.columnHeader4.Text = "Tarih";
+            this.columnHeader4.Width = 80;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Beklenen Gelir";
+            this.columnHeader5.Width = 160;
             // 
             // button3
             // 
@@ -182,10 +199,12 @@ namespace OPHELIA_S_OASIS
             // columnHeader6
             // 
             this.columnHeader6.Text = "Tarih";
+            this.columnHeader6.Width = 80;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Teşvik İndirimi";
+            this.columnHeader7.Width = 80;
             // 
             // AdminPanel
             // 
