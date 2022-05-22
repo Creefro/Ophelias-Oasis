@@ -72,7 +72,7 @@
       <DependentUpon>RezervasyonErtele.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
-    <Compile Include="Müşteri.cs" />
+    <Compile Include="Admin.cs" />
     <Compile Include="OdaYönet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

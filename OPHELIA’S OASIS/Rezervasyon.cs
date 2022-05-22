@@ -37,7 +37,7 @@ namespace OPHELIA_S_OASIS
         }
         public void odemeSave(int id,double rezUcret,DateTime checkOut,DateTime checkIn,double indirim)
         {
-            int gun = (checkOut - checkIn).Days;
+            int gun = (checkOut.Day - checkIn.Day);
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
 
             SqlCommand command = new SqlCommand("INSERT INTO Ödeme (MüşteriId,ÖdemeTarihi,Toplam,İndirim) VALUES(" + id + ",GETDATE()," + (gun * rezUcret) + ","+ indirim+" )");

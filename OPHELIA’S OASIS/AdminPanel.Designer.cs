@@ -43,6 +43,10 @@ namespace OPHELIA_S_OASIS
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +62,7 @@ namespace OPHELIA_S_OASIS
             this.listView1.Size = new System.Drawing.Size(495, 248);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -136,6 +141,14 @@ namespace OPHELIA_S_OASIS
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Tarih";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Beklenen Gelir";
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(676, 451);
@@ -146,11 +159,42 @@ namespace OPHELIA_S_OASIS
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(541, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "label1";
+            // 
+            // listView3
+            // 
+            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader7});
+            this.listView3.HideSelection = false;
+            this.listView3.Location = new System.Drawing.Point(92, 438);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(495, 248);
+            this.listView3.TabIndex = 7;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Tarih";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Teşvik İndirimi";
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 531);
+            this.ClientSize = new System.Drawing.Size(800, 729);
+            this.Controls.Add(this.listView3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.geriButton);
@@ -162,6 +206,7 @@ namespace OPHELIA_S_OASIS
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -181,5 +226,9 @@ namespace OPHELIA_S_OASIS
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
