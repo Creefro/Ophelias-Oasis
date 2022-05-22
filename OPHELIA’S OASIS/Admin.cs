@@ -28,5 +28,6 @@ namespace OPHELIA_S_OASIS
             connection.Close();
             return dolulukOran/30;
         }
+
     }
 }
