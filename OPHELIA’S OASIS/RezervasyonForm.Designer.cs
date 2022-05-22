@@ -35,7 +35,6 @@ namespace OPHELIA_S_OASIS
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,18 +43,19 @@ namespace OPHELIA_S_OASIS
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.kartTxt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.kartTxt = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -102,14 +102,6 @@ namespace OPHELIA_S_OASIS
             this.label3.Size = new System.Drawing.Size(102, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Kart Numarası:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 94);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.Value = new System.DateTime(2022, 5, 17, 22, 54, 0, 0);
             // 
             // dateTimePicker2
             // 
@@ -175,18 +167,18 @@ namespace OPHELIA_S_OASIS
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 60);
             this.button2.TabIndex = 14;
-            this.button2.Text = "Rezervasyon İptali";
+            this.button2.Text = "Rezervasyon Güncelle";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.kartTxt);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.comboBox3);
             this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.kartTxt);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(516, 12);
             this.groupBox1.Name = "groupBox1";
@@ -194,6 +186,15 @@ namespace OPHELIA_S_OASIS
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kredi Kartı Bilgileri";
+            // 
+            // kartTxt
+            // 
+            this.kartTxt.Location = new System.Drawing.Point(127, 59);
+            this.kartTxt.MaxLength = 16;
+            this.kartTxt.Name = "kartTxt";
+            this.kartTxt.Size = new System.Drawing.Size(100, 22);
+            this.kartTxt.TabIndex = 13;
+            this.kartTxt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.kartTxt_KeyUp);
             // 
             // label8
             // 
@@ -265,15 +266,6 @@ namespace OPHELIA_S_OASIS
             this.comboBox2.TabIndex = 8;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // kartTxt
-            // 
-            this.kartTxt.Location = new System.Drawing.Point(114, 52);
-            this.kartTxt.Mask = "0000 0000 0000 0000";
-            this.kartTxt.Name = "kartTxt";
-            this.kartTxt.Size = new System.Drawing.Size(138, 22);
-            this.kartTxt.TabIndex = 7;
-            this.kartTxt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.kartTxt_KeyUp);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -334,11 +326,19 @@ namespace OPHELIA_S_OASIS
             this.label12.TabIndex = 20;
             this.label12.Text = "000";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 94);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 21;
+            // 
             // RezervasyonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 478);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -353,7 +353,6 @@ namespace OPHELIA_S_OASIS
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mailTxt);
@@ -377,7 +376,6 @@ namespace OPHELIA_S_OASIS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -390,7 +388,6 @@ namespace OPHELIA_S_OASIS
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.MaskedTextBox kartTxt;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label8;
@@ -398,5 +395,7 @@ namespace OPHELIA_S_OASIS
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox kartTxt;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

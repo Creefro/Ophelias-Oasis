@@ -26,7 +26,7 @@ namespace OPHELIA_S_OASIS
             int odaidsi = odaIdCek();
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
             
-            SqlCommand command = new SqlCommand("INSERT INTO Rezervasyon (MüşteriId,OdaId,RezervasyonTarih,CheckIn,CheckOut) VALUES(" + id+ "," + odaidsi + ",GETDATE(),CONVERT (datetime," + day1 + "-" + month1 + "-" + year1 + "),CONVERT (datetime," + day2 + "-" + month2 + "-" + year2 + "))");
+            SqlCommand command = new SqlCommand("INSERT INTO Rezervasyon (MüşteriId,OdaId,RezervasyonTarih,CheckIn,CheckOut) VALUES(" + id+ "," + odaidsi + ",GETDATE(),CONVERT (datetime,'" + year1 + "-" + month1 + "-" + day1 + "'),CONVERT (datetime,'" + year2 + "-" + month2 + "-" + day2 + "'))");
             command.Connection = connection;
             connection.Open();
 
@@ -35,12 +35,12 @@ namespace OPHELIA_S_OASIS
             connection.Close();
             return odaidsi;
         }
-        public void odemeSave(int id,double rezUcret,DateTime checkOut,DateTime checkIn)
+        public void odemeSave(int id,double rezUcret,DateTime checkOut,DateTime checkIn,double indirim)
         {
-            int gun = (checkOut - checkIn).Days;
+            int gun = (checkOut.Day - checkIn.Day);
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
 
-            SqlCommand command = new SqlCommand("INSERT INTO Ödeme (MüşteriId,ÖdemeTarihi,Toplam) VALUES(" + id + ",GETDATE()," + (gun * rezUcret) + " )");
+            SqlCommand command = new SqlCommand("INSERT INTO Ödeme (MüşteriId,ÖdemeTarihi,Toplam,İndirim) VALUES(" + id + ",GETDATE()," + (gun * rezUcret) + ","+ indirim+" )");
             command.Connection = connection;
             connection.Open();
 
@@ -52,6 +52,37 @@ namespace OPHELIA_S_OASIS
         {
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
             SqlCommand command = new SqlCommand("SELECT MüşteriId FROM Musteri WHERE MüşteriAdSoyad = '" + musteriAd + "'");
+            command.Connection = connection;
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            int ID = 0;
+            while (reader.Read())
+            {
+                ID = reader.GetInt32(0);
+            }
+            connection.Close();
+            return ID;
+        }
+
+        public string rezTipiÇek(int musteriId)
+        {
+            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
+            SqlCommand command = new SqlCommand("SELECT Rezervasyon FROM Musteri WHERE MüşteriId = '" + musteriId + "'");
+            command.Connection = connection;
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            string tip = "";
+            while (reader.Read())
+            {
+                tip = reader.GetString(0);
+            }
+            connection.Close();
+            return tip;
+        }
+        public int GetOdaIdFromRezervasyon(int müşteriId)
+        {
+            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
+            SqlCommand command = new SqlCommand("SELECT OdaId FROM Rezervasyon WHERE MüşteriId = '" + müşteriId + "'");
             command.Connection = connection;
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
@@ -98,6 +129,30 @@ namespace OPHELIA_S_OASIS
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
 
             SqlCommand command = new SqlCommand("UPDATE Oda SET DoluMu = 1 WHERE OdaId = " + odaId+ "");
+            command.Connection = connection;
+            connection.Open();
+
+            command.ExecuteNonQuery();
+
+            connection.Close();
+        }
+        public void rezUpdate(int musteriId, int day1, int month1, int year1, int day2, int month2, int year2)
+        {
+            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
+
+            SqlCommand command = new SqlCommand("UPDATE Rezervasyon SET CheckIn = CONVERT(datetime, " + day1 + " - " + month1 + " - " + year1 + "), CheckOut = CONVERT (datetime," + day2 + "-" + month2 + "-" + year2 + ") WHERE MusteriId = " + musteriId + "");
+            command.Connection = connection;
+            connection.Open();
+
+            command.ExecuteNonQuery();
+
+            connection.Close();
+        }
+        public void cezaEkle(int musteriId,double ücret)
+        {
+            SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
+
+            SqlCommand command = new SqlCommand("Update Ödeme set Toplam = dbo.cezaÜcretEkle("+musteriId+") +"+ücret+" where MüşteriId = "+musteriId+"");
             command.Connection = connection;
             connection.Open();
 

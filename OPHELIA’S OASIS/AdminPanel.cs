@@ -17,14 +17,26 @@ namespace OPHELIA_S_OASIS
             if (beklenenDoluluk.Checked)
             {
                 GetBeklenenDolulukRaporu();
+                //decimal valorAcumulado = 0;
+                //for (int i = 0; i < listView1.Items.Count; i++)
+                //{
+                //    valorAcumulado += decimal.Parse(listView1.Items[i].SubItems[0].Text);
+                //}
+                //label1.Text = "Beklenen doluluk oranı = "+(valorAcumulado / 30)+".";
             }
             else if (beklenenOdaGelir.Checked)
             {
                 GetBeklenenOdaGelirRaporu();
+                decimal valorAcumulado = 0;
+                for (int i = 0; i < listView1.Items.Count; i++)
+                {
+                    valorAcumulado += decimal.Parse(listView1.Items[i].SubItems[1].Text);
+                }
+                label1.Text = "Toplam gelir = " + (valorAcumulado) + ".\nOrtalama gelir = "+(valorAcumulado/30)+".";
             }
             else if (tesvikRaporu.Checked)
             {
-
+                GetTeşvikRaporu();
             }
             else
                 MessageBox.Show("Hata");
@@ -34,6 +46,7 @@ namespace OPHELIA_S_OASIS
         {
             listView1.Visible = true;
             listView2.Visible = false;
+            listView3.Visible = false;
 
             listView1.Items.Clear();
             listView1.View = View.Details;
@@ -60,9 +73,10 @@ namespace OPHELIA_S_OASIS
         {
             listView1.Visible = false;
             listView2.Visible = true;
+            listView3.Visible = false;
 
-            listView1.Items.Clear();
-            listView1.View = View.Details;
+            listView2.Items.Clear();
+            listView2.View = View.Details;
             SqlConnection connection = Helper.GetConnection("Ophelias-Oasis");
 
             SqlCommand command = new SqlCommand("select * from dbo.beklenenGelir()");
@@ -86,12 +100,13 @@ namespace OPHELIA_S_OASIS
         {
             listView1.Visible = false;
             listView2.Visible = false;
-            // kullanıcıyı çeker
-            listView1.Items.Clear();
-            listView1.View = View.Details;
+            listView3.Visible = true;
+
+            listView3.Items.Clear();
+            listView3.View = View.Details;
             SqlConnection connection = Helper.GetConnection("SinavSistemiDB");
 
-            SqlCommand command = new SqlCommand("select * from dbo.beklenenGelir()");
+            SqlCommand command = new SqlCommand("select * from dbo.tesvikRapor()");
 
             command.Connection = connection;
             connection.Open();
@@ -101,9 +116,9 @@ namespace OPHELIA_S_OASIS
             int sayac = 0;
             while (reader.Read())
             {
-                string[] doldur = new string[] { reader.GetString(1), reader.GetDateTime(2).ToShortDateString() };
+                string[] doldur = new string[] { reader.GetFloat(1).ToString() };
 
-                listView1.Items.Add(reader.GetInt32(0).ToString()).SubItems.AddRange(doldur);
+                listView3.Items.Add(reader.GetDateTime(0).ToShortDateString()).SubItems.AddRange(doldur);
                 sayac++;
             }
             connection.Close();
@@ -123,6 +138,11 @@ namespace OPHELIA_S_OASIS
             main.Location = this.Location;
             this.Hide();
             main.Show();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
